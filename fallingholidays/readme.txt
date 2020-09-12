@@ -12,3 +12,6 @@ Second way:  put content of  XMasLights_menu.php in your theme.php
   <!-- lights go here -->
  </div>
 <div id='Div1' class='snow'></div>
+
+New way:
+just set correct HTML tag and date values in admin prefs

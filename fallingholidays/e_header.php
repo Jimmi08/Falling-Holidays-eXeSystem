@@ -490,6 +490,28 @@ else {
 			smashInit();
 		}
 		});   ";
+        
+         $LightsTag = varset($pluginpref['LightsTag'], ''); 
+
+        if($LightsTag) {
+		 
+			$_t = time();
+			$LightsEnd = varset($pluginpref['LightsEnd'], 0);
+	
+			if($pluginpref['LightsStart'] <  $_t  AND ($LightsEnd == 0 || $LightsEnd > $_t )  )  {
+
+				$html  = "<div id='lights'></div>"; 
+
+				$jscode .= 	
+				'jQuery(document).ready(function(){
+					jQuery ( "'.$LightsTag.'" ) .prepend("'.$html.'");
+				});
+				' ;
+
+				e107::js('inline', $jscode, 'jquery');
+			} 
+		}
+        
 
 		e107::js('inline', $jscode, 'jquery');
 	}
